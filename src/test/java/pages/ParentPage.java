@@ -43,10 +43,23 @@ public class ParentPage {
         element.sendKeys(text);
     }
 
-    public void verifyContainsText(WebElement element, String value) {
-        wait.until(ExpectedConditions.textToBePresentInElement(element, value));
-        Assert.assertTrue(element.getText().toLowerCase().contains(value.toLowerCase()));
+    public void verifyContainsText(WebElement element, String value, String attributeName) {
+        // Waiting is done according to the element is visible
+        wait.until(ExpectedConditions.visibilityOf(element));
+
+        // Attribute value or text is retrieved
+        String actualValue;
+        if (attributeName != null && !attributeName.isEmpty()) {
+            actualValue = element.getAttribute(attributeName);
+        } else {
+            actualValue = element.getText();
+        }
+
+        // Check that the expected value is present in the attribute or text
+        Assert.assertTrue(actualValue.toLowerCase().contains(value.toLowerCase()),
+                "Expected value to be present in the attribute or text.");
     }
+
 
     public void ActionHover(WebElement element) {
         scrollToElement(element);
@@ -74,7 +87,7 @@ public class ParentPage {
 
     public void Wait(int limit) {
         try {
-            Thread.sleep(limit * 3000L);
+            Thread.sleep(limit * 300L);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

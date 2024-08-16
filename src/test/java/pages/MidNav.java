@@ -7,14 +7,11 @@ import utilities.GWD;
 
 import java.util.List;
 
-public class MidNav {
+public class MidNav extends ParentPage {
 
     public MidNav() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
-
-    @FindBy(id = "Combined-Shape")
-    public WebElement combinedShapeCloseButton;
 
     @FindBy(css = "[class*='button submit']")
     public WebElement loginSubmit;
@@ -27,4 +24,7 @@ public class MidNav {
 
     @FindBy(className = ".checkout-saving-remove-button")
     public WebElement removeButton;
+
+    @FindBy(xpath = "//button[@id='onetrust-accept-btn-handler']")
+    public WebElement acceptButton;
 }
