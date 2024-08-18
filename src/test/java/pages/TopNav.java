@@ -29,4 +29,7 @@ public class TopNav extends ParentPage {
     @FindBy(css = "a[class='link account-basket']")
     public WebElement basketLink;
 
+    @FindBy(xpath = "(//div[@data-testid='suggestions-container']/div/div)[2]/a")
+    public WebElement suggestion;
+
 }

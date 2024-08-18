@@ -20,8 +20,17 @@ public class DialogContent extends ParentPage {
     @FindBy(css = "span[class='message']")
     public WebElement warningMessage;
 
+    @FindBy(xpath = "//div[@class='no-rslt-text no-rslt-title']//strong")
+    public WebElement noResultText;
+
     @FindBy(xpath = "//div[@class='fltr-item-text chckd']")
     public WebElement filterLaptopChecked;
+
+    @FindBy(className = "onboarding-button")
+    public WebElement onBoardingButton;
+
+    @FindBy(xpath = "//button[@class='location-area']")
+    public WebElement locationButton;
 
 }
 

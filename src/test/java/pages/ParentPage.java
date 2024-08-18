@@ -35,7 +35,6 @@ public class ParentPage {
         jse.executeScript("arguments[0].click();", element);
     }
 
-
     public void mySendKeys(WebElement element, String text) {
         wait.until(ExpectedConditions.visibilityOf(element));
         scrollToElement(element);
@@ -44,10 +43,8 @@ public class ParentPage {
     }
 
     public void verifyContainsText(WebElement element, String value, String attributeName) {
-        // Waiting is done according to the element is visible
         wait.until(ExpectedConditions.visibilityOf(element));
 
-        // Attribute value or text is retrieved
         String actualValue;
         if (attributeName != null && !attributeName.isEmpty()) {
             actualValue = element.getAttribute(attributeName);
@@ -55,23 +52,21 @@ public class ParentPage {
             actualValue = element.getText();
         }
 
-        // Check that the expected value is present in the attribute or text
-        Assert.assertTrue(actualValue.toLowerCase().contains(value.toLowerCase()),
-                "Expected value to be present in the attribute or text.");
+        Assert.assertTrue(actualValue.toLowerCase().contains(value.toLowerCase()), "Expected value to be present in the attribute or text.");
     }
 
 
     public void ActionHover(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
         scrollToElement(element);
         Action action = driverAction.moveToElement(element).build();
-        wait.until(ExpectedConditions.visibilityOf(element));
         action.perform();
     }
 
     public void ActionClick(WebElement element) {
-        scrollToElement(element);
-        Action action = driverAction.moveToElement(element).build();
         wait.until(ExpectedConditions.elementToBeClickable(element));
+        scrollToElement(element);
+        Action action = driverAction.click(element).build();
         action.perform();
     }
 

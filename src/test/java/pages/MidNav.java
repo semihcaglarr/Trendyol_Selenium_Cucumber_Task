@@ -13,18 +13,38 @@ public class MidNav extends ParentPage {
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
+    @FindBy(xpath = "//button[@id='onetrust-accept-btn-handler']")
+    public WebElement acceptButton;
+
     @FindBy(css = "[class*='button submit']")
     public WebElement loginSubmit;
 
     @FindBy(css = "div[class='image-overlay-body']")
     public List<WebElement> products;
 
-    @FindBy(css = "[class='product-button-container']>button")
+    @FindBy(css = "div[class='product-price-container'] span")
+    public WebElement productPrice;
+
+    @FindBy(xpath = "(//button[@component-id='1'])[2]")
     public WebElement addToBasket;
 
-    @FindBy(className = ".checkout-saving-remove-button")
+    @FindBy(xpath = "//div[contains(@class,'success')]")
+    public WebElement addToBasketSuccessText;
+
+    @FindBy(xpath = "//div[@class='tooltip-content']/button")
+    public WebElement toolTipContent;
+
+    @FindBy(xpath = "(//div[@class='pb-basket-item-price'])[1]")
+    public WebElement basketPrice;
+
+    @FindBy(xpath = "(//div[contains(@class,'numeric-counter')]/button)[2]")
+    public WebElement numericButton;
+
+    @FindBy(css = "button[class*='remove-button']")
     public WebElement removeButton;
 
-    @FindBy(xpath = "//button[@id='onetrust-accept-btn-handler']")
-    public WebElement acceptButton;
+    @FindBy(xpath = "//ul[@class='pb-summary-box-prices']//strong")
+    public WebElement totalText;
+
+
 }
