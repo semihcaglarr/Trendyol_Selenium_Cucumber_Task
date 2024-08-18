@@ -11,10 +11,10 @@ public class Hooks {
 
     }
 
-//    @After // Cucumber's Annotation
-//           // Runs after each scenario
-//    public void After() {
-//
-//        GWD.quitDriver();
-//    }
+    @After // Cucumber's Annotation
+           // Runs after each scenario
+    public void After() {
+
+        GWD.quitDriver();
+    }
 }
