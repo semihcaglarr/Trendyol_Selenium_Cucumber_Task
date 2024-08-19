@@ -11,7 +11,7 @@ import java.util.Locale;
 
 public class GWD {
 
-    private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
     public static ThreadLocal<String> threadBrowserName = new ThreadLocal<>();
 
 

@@ -14,5 +14,6 @@ Feature: Increase Product Quantity in Cart
     And The user check the product price in the cart
     Then The price should remain the same before and after adding to the cart
 
-    Scenario: Increase Product Quantity to Two
-      Then The user should double the product quantity and the total price should be updated correctly
+  @RegressionTest
+  Scenario: Increase Product Quantity to Two
+    Then The user should double the product quantity and the total price should be updated correctly
