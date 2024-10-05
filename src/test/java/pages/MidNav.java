@@ -19,7 +19,7 @@ public class MidNav extends ParentPage {
     @FindBy(css = "[class*='button submit']")
     public WebElement loginSubmit;
 
-    @FindBy(css = "div[class='image-overlay-body']")
+    @FindBy(xpath = "//div[@class='ratings-container']/..")
     public List<WebElement> products;
 
     @FindBy(css = "div[class='product-price-container'] span")
